@@ -10,7 +10,7 @@ import io.ktor.server.routing.*
 fun Application.configureRouting() {
     routing {
         rootRoute()
-        tokenVerificationRoute()
+        tokenVerificationRoute(application)
         authorizedRoute()
         unauthorizedRoute()
     }
