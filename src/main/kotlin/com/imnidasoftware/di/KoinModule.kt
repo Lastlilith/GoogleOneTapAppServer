@@ -1,5 +1,7 @@
 package com.imnidasoftware.di
 
+import com.imnidasoftware.data.repository.UserDataSourceImpl
+import com.imnidasoftware.domain.repository.UserDataSource
 import com.imnidasoftware.util.Constants.DATABASE_NAME
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
@@ -11,5 +13,8 @@ val koinModule = module {
             .coroutine
             .getDatabase(DATABASE_NAME)
 
+    }
+    single<UserDataSource> {
+        UserDataSourceImpl(get())
     }
 }
